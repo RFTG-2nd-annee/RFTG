@@ -1,6 +1,7 @@
 package com.example.toad.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,5 +42,9 @@ public class CustomerController {
 
         customerRepository.save(customer);
         return "Customer Updated";
+    }
+        @GetMapping(path="/all")
+    public @ResponseBody Iterable<Customer> getAllCustomer() {
+        return customerRepository.findAll();
     }
 }
