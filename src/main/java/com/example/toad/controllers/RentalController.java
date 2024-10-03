@@ -13,7 +13,7 @@ import com.example.toad.entities.Rental;
 import com.example.toad.repositories.RentalRepository;
 
 @Controller // This means that this class is a Controller
-@RequestMapping(path = "/Rental") // This means URL's start with /film (after Application path)
+@RequestMapping(path = "/toad/rental") // This means URL's start with /film (after Application path)
 public class RentalController {
     @Autowired
     private RentalRepository RentalRepository; // Assuming you have a FilmRepository for Film entity
@@ -45,7 +45,7 @@ public class RentalController {
         return "Rental Updated";
     }
 
-    @PostMapping(path = "/toad/rentals")
+    @PostMapping(path = "/rentals")
     public @ResponseBody String createRental(
             @PathVariable Integer rental_id,
             @RequestParam String rental_date,
@@ -68,5 +68,9 @@ public class RentalController {
                 return "Location crée avec succès !";
             }
 
-
+    @DeleteMapping(path = "/delete/{id}")
+    public @ResponseBody String deleteFilm(@PathVariable Integer id) {
+        filmRepository.deleteById(id);
+        return "Film Supprimé";
+    }
 }
