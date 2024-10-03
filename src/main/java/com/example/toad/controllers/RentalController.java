@@ -2,6 +2,7 @@ package com.example.toad.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -42,7 +43,13 @@ public class RentalController {
         Rental.setLastUpdate(last_update);
 
         RentalRepository.save(Rental);
-        return "Rental Updated";
+        return "Rental Saved";
+    }
+
+    @DeleteMapping(path = "/delete/{id}") // Map ONLY DELETE Requests for deleting a rental
+    public @ResponseBody String deleteRental(@PathVariable Integer id) {
+        RentalRepository.deleteById(id);
+        return "Rental Deleted";
     }
 
     @PostMapping(path = "/create/{id}")
