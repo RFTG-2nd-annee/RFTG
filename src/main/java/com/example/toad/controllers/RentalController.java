@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -50,7 +51,8 @@ public class RentalController {
         RentalRepository.deleteById(id);
         return "Rental Deleted";
     }
-    @PutMapping(path = "/create/{id}")
+
+    @PostMapping(path = "/create/{id}")
     public @ResponseBody String createRental(
             @PathVariable Integer rental_id,
             @RequestParam String rental_date,
