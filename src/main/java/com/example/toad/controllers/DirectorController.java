@@ -42,6 +42,7 @@ public class DirectorController {
   public @ResponseBody Director getFilmById(@RequestParam Integer id) {
     return directorRepository.findById(id).orElse(null);
   }
+  
   @GetMapping(path="/all")
   public @ResponseBody Iterable<Director> getAllDirectors() {
     // This returns a JSON or XML with the users
