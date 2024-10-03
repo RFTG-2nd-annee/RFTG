@@ -2,10 +2,9 @@ package com.example.toad.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -43,16 +42,10 @@ public class RentalController {
         Rental.setLastUpdate(last_update);
 
         RentalRepository.save(Rental);
-        return "Rental Saved";
+        return "Rental Updated";
     }
 
-    @DeleteMapping(path = "/delete/{id}") // Map ONLY DELETE Requests for deleting a rental
-    public @ResponseBody String deleteRental(@PathVariable Integer id) {
-        RentalRepository.deleteById(id);
-        return "Rental Deleted";
-    }
-
-    @PostMapping(path = "/create/{id}")
+    @PostMapping(path = "/toad/rentals")
     public @ResponseBody String createRental(
             @PathVariable Integer rental_id,
             @RequestParam String rental_date,
