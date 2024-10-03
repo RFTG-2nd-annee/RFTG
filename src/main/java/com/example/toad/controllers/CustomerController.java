@@ -1,6 +1,7 @@
 package com.example.toad.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,10 +46,18 @@ public class CustomerController {
         return "Customer Updated";
     }
 
+
     @DeleteMapping(path = "/delete/{id}")
     public @ResponseBody String deleteCustomer(@PathVariable Integer id) {
         customerRepository.deleteById(id);
         return "Customer delete";
 
     }
+
+
+    @GetMapping(path="/all")
+    public @ResponseBody Iterable<Customer> getAllCustomer() {
+        return customerRepository.findAll();
+    }
 }
+
