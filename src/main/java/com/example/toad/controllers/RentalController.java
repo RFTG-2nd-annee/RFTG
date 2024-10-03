@@ -72,6 +72,6 @@ public class RentalController {
     @DeleteMapping(path = "/delete/{id}")
     public @ResponseBody String deleteFilm(@PathVariable Integer id) {
         RentalRepository.deleteById(id);
-        return "Film Supprimé";
+        return "Location Supprimée";
     }
 }
