@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.toad.entities.Director;
+import com.example.toad.entities.User;
 import com.example.toad.repositories.DirectorRepository;
 
 @Controller 
@@ -36,6 +37,11 @@ public class DirectorController {
     return "Saved";
   }
 
+  @GetMapping(path="/getById")
+  public @ResponseBody Director getFilmById(@RequestParam Integer id) {
+    return directorRepository.findById(id).orElse(null);
+  }
+  
   @GetMapping(path="/all")
   public @ResponseBody Iterable<Director> getAllDirectors() {
     // This returns a JSON or XML with the users
