@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.toad.entities.Location;
-import com.example.toad.repositories.LocationRepository;
+import com.example.toad.entities.Rental;
+import com.example.toad.repositories.RentalRepository;
 
 @Controller // This means that this class is a Controller
-@RequestMapping(path = "/location") // This means URL's start with /film (after Application path)
-public class LocationController {
+@RequestMapping(path = "/Rental") // This means URL's start with /film (after Application path)
+public class RentalController {
     @Autowired
-    private LocationRepository locationRepository; // Assuming you have a FilmRepository for Film entity
+    private RentalRepository RentalRepository; // Assuming you have a FilmRepository for Film entity
     
     @PutMapping(path = "/update/{id}") // Map ONLY PUT Requests for updating a film
-    public @ResponseBody String updateLocation(
+    public @ResponseBody String updateRental(
             @PathVariable Integer rental_id,
             @RequestParam String rental_date,
             @RequestParam Integer inventory_id,
@@ -27,21 +27,21 @@ public class LocationController {
             @RequestParam Integer staff_id,
             @RequestParam String last_update) {
 
-        Location location = locationRepository.findById(rental_id).orElse(null);
-        if (location == null) {
-            return "Location not found";
+        Rental Rental = RentalRepository.findById(rental_id).orElse(null);
+        if (Rental == null) {
+            return "Rental not found";
         }
 
-        location.setRentalId(rental_id);
-        location.setRentalDate(rental_date);
-        location.setInventoryId(inventory_id);
-        location.setCustomerId(customer_id);
-        location.setReturnDate(return_date);
-        location.setStaffId(staff_id);
-        location.setLastUpdate(last_update);
+        Rental.setRentalId(rental_id);
+        Rental.setRentalDate(rental_date);
+        Rental.setInventoryId(inventory_id);
+        Rental.setCustomerId(customer_id);
+        Rental.setReturnDate(return_date);
+        Rental.setStaffId(staff_id);
+        Rental.setLastUpdate(last_update);
 
-        locationRepository.save(location);
-        return "Location Updated";
+        RentalRepository.save(Rental);
+        return "Rental Updated";
     }
 
 }

@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity // This tells Hibernate to make a table out of this class
-public class Location {
+public class Rental {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer rental_id; // BIGINT
