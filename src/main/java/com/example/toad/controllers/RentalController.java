@@ -20,7 +20,7 @@ public class RentalController {
     
     @PutMapping(path = "/update/{id}") // Map ONLY PUT Requests for updating a film
     public @ResponseBody String updateRental(
-            @PathVariable Integer rental_id,
+            @PathVariable Integer id,
             @RequestParam String rental_date,
             @RequestParam Integer inventory_id,
             @RequestParam Integer customer_id,
@@ -28,12 +28,12 @@ public class RentalController {
             @RequestParam Integer staff_id,
             @RequestParam String last_update) {
 
-        Rental Rental = RentalRepository.findById(rental_id).orElse(null);
+        Rental Rental = RentalRepository.findById(id).orElse(null);
         if (Rental == null) {
             return "Rental not found";
         }
 
-        Rental.setRentalId(rental_id);
+        Rental.setRentalId(id);
         Rental.setRentalDate(rental_date);
         Rental.setInventoryId(inventory_id);
         Rental.setCustomerId(customer_id);
