@@ -5,15 +5,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import com.example.toad.entities.Customer;
 import com.example.toad.repositories.CustomerRepository;
+
 public class CustomerController {
 
- @Autowired
-    private CustomerRepository customerRepository;    
+    @Autowired
+    private CustomerRepository customerRepository;
 
-@PutMapping(path = "/update/{id}")
+    @PutMapping(path = "/update/{id}")
     public @ResponseBody String updateRepository(
             @PathVariable Integer id,
             @RequestParam Integer store_id,
@@ -24,8 +26,8 @@ public class CustomerController {
             @RequestParam int active,
             @RequestParam java.sql.Timestamp create_update,
             @RequestParam java.sql.Timestamp last_update) {
-        
-      Customer customer = customerRepository.findById(id).orElse(null);
+
+        Customer customer = customerRepository.findById(id).orElse(null);
         if (customer == null) {
             return "Customer not found";
         }
@@ -41,5 +43,12 @@ public class CustomerController {
 
         customerRepository.save(customer);
         return "Customer Updated";
+    }
+
+    @DeleteMapping(path = "/delete/{id}")
+    public @ResponseBody String deleteCustomer(@PathVariable Integer id) {
+        customerRepository.deleteById(id);
+        return "Customer delete";
+
     }
 }
