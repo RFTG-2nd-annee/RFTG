@@ -15,7 +15,7 @@ import com.example.toad.entities.Inventory;
 import com.example.toad.repositories.InventoryRepository;
 
 @Controller
-@RequestMapping(path = "/inventory")
+@RequestMapping(path = "/toad/inventory")
 public class InventoryController {
     @Autowired
     private InventoryRepository inventoryRepository;

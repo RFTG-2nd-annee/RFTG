@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.toad.entities.Film;
 import com.example.toad.repositories.FilmRepository;
 
-@Controller // This means that this class is a Controller
-@RequestMapping(path = "/film") // This means URL's start with /film (after Application path)
+@Controller
+@RequestMapping(path = "/toad/film")
 public class FilmController {
     @Autowired
-    private FilmRepository filmRepository; // Assuming you have a FilmRepository for Film entity
+    private FilmRepository filmRepository;
 
-    @PostMapping(path = "/add") // Map ONLY POST Requests for adding a film
+    @PostMapping(path = "/add")
     public @ResponseBody String addNewFilm(
             @RequestParam String title,
             @RequestParam String description,
@@ -52,7 +52,7 @@ public class FilmController {
         System.out.println(film.getTitle());
 
         filmRepository.save(film);
-        return "Film Saved";
+        return "Film Sauvegardé";
     }
 
     @GetMapping(path="/getById")
@@ -65,7 +65,7 @@ public class FilmController {
         return filmRepository.findAll();
     }
 
-    @PutMapping(path = "/update/{id}") // Map ONLY PUT Requests for updating a film
+    @PutMapping(path = "/update/{id}")
     public @ResponseBody String updateFilm(
             @PathVariable Integer id,
             @RequestParam String title,
@@ -83,7 +83,7 @@ public class FilmController {
         
         Film film = filmRepository.findById(id).orElse(null);
         if (film == null) {
-            return "Film not found";
+            return "Film non trouvé";
         }
 
         film.setTitle(title);
@@ -100,12 +100,12 @@ public class FilmController {
         film.setIdDirector(idDirector);
 
         filmRepository.save(film);
-        return "Film Updated";
+        return "Film Mis à jour";
     }
 
-    @DeleteMapping(path = "/delete/{id}") // Map ONLY DELETE Requests for deleting a film
+    @DeleteMapping(path = "/delete/{id}")
     public @ResponseBody String deleteFilm(@PathVariable Integer id) {
         filmRepository.deleteById(id);
-        return "Film Deleted";
+        return "Film Supprimé";
     }
 }
