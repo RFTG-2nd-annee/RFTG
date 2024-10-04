@@ -1,4 +1,4 @@
-package com.example.toad.controllers;
+package com.toad.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.toad.entities.Actor;
-import com.example.toad.repositories.ActorRepository;
+import com.toad.entities.Actor;
+import com.toad.repositories.ActorRepository;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path = "/toad/actor") // This means URL's start with /film (after Application path)

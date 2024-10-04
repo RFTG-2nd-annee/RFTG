@@ -1,4 +1,4 @@
-package com.example.toad.controllers;
+package com.toad.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.toad.entities.Director;
-import com.example.toad.repositories.DirectorRepository;
+import com.toad.entities.Director;
+import com.toad.repositories.DirectorRepository;
 
 @Controller 
 @RequestMapping(path="/toad/director") 
