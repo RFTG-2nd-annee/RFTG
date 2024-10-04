@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +20,30 @@ public class CustomerController {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @PostMapping(path="/add")
+    public @ResponseBody String addNewCustomer (@PathVariable Integer id,
+    @RequestParam Integer store_id,
+    @RequestParam String prenom,
+    @RequestParam String nom,
+    @RequestParam String mail,
+    @RequestParam Integer adresse_id,
+    @RequestParam int active,
+    @RequestParam java.sql.Timestamp create_update,
+    @RequestParam java.sql.Timestamp last_update) {
+
+    Customer n = new Customer();
+    n.setNom(nom);
+    n.setMail(mail);
+    n.setPrenom(prenom);
+    n.setActive(active);
+    n.setCreateUpdate(create_update);
+    n.setLastUpdate(last_update);
+    
+    customerRepository.save(n);
+    return "Sauvegardé";
+}
+
 
     @PutMapping(path = "/update/{id}")
     public @ResponseBody String updateRepository(
@@ -45,6 +70,8 @@ public class CustomerController {
         customer.setMail(mail);
         customer.setAdresseId(adresse_id);
         customer.setActive(active);
+        customer.setCreateUpdate(create_update);
+        customer.setLastUpdate(last_update);
 
         customerRepository.save(customer);
         return "Customer Updated";
