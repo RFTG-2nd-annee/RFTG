@@ -17,7 +17,7 @@ public class Director {
  
     private java.sql.Timestamp date_naissance; // Year is typically handled as Integer
  
-    private String nationalite; // TINYINT
+    private String nationnalite; // TINYINT
  
     // Getters and Setters
     public Integer getdirector_id() {
@@ -53,11 +53,11 @@ public class Director {
     }
  
     public String getnationalite() {
-        return nationalite;
+        return nationnalite;
     }
  
-    public void setnationalite(String nationalite) {
-        this.nationalite = nationalite;
+    public void setnationalite(String nationnalite) {
+        this.nationnalite = nationnalite;
     }
  
 }
