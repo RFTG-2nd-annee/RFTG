@@ -1,7 +1,7 @@
 # Projet Peach
 
 ## Instructions d'installation de la base de données
-
+⚠️ Pour les requêtes suivantes: désactivez la vérification des céls étrangères et utilisez l'import, non l'execution de code direct.
 Pour configurer correctement la base de données Peach, veuillez suivre ces étapes dans l'ordre indiqué :
 
 1. Exécutez le script `peach-schema.sql`
