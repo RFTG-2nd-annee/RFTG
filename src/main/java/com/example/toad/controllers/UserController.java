@@ -12,7 +12,7 @@ import com.example.toad.entities.User;
 import com.example.toad.repositories.UserRepository;
 
 @Controller
-@RequestMapping(path="toad/user")
+@RequestMapping(path="/toad/user")
 public class UserController {
   @Autowired
   private UserRepository userRepository;
