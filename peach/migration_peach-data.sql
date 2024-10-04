@@ -6,8 +6,24 @@ SET @old_autocommit=@@autocommit;
 
 USE peach;
 
-
-UPDATE `customer` SET age = "57" WHERE customer_id = "1"; 
+INSERT INTO film_language_translation (film_id, language_id) 
+SELECT film_id, 1 
+FROM film; 
+INSERT INTO film_language_translation (film_id, language_id) 
+SELECT film_id, 2 
+FROM film; 
+INSERT INTO film_language_translation (film_id, language_id) 
+SELECT film_id, 3 
+FROM film; 
+INSERT INTO film_language_translation (film_id, language_id) 
+SELECT film_id, 4 
+FROM film; 
+INSERT INTO film_language_translation (film_id, language_id) 
+SELECT film_id, 5 
+FROM film; 
+INSERT INTO film_language_translation (film_id, language_id) 
+SELECT film_id, 6 
+FROM film; 
 
 UPDATE film 
 SET original_language_id = 1 WHERE film_id BETWEEN 0 AND 166; 
@@ -48,15 +64,34 @@ UPDATE `customer` SET age = "61" WHERE customer_id = "23";
 UPDATE `customer` SET age = "29" WHERE customer_id = "24"; 
 UPDATE `customer` SET age = "55" WHERE customer_id = "25";
 
-INSERT INTO director (nom, prenom, date_naissance, nationalite) 
-VALUES 
-('Spielberg', 'Steven', '1946-12-18', 'Américain'), 
-('Nolan', 'Christopher', '1970-07-30', 'Britannique'), 
-('Cameron', 'James', '1954-08-16', 'Canadien'); 
-
-UPDATE film SET id_director = 1 WHERE title = 'Jurassic Park'; 
-UPDATE film SET id_director = 2 WHERE title = 'Inception'; 
-UPDATE film SET id_director = 3 WHERE title = 'Avatar'; 
+-- DATA director
+INSERT INTO `director` (`director_id`, `nom`, `prenom`, `date_naissance`, `nationnalite`) VALUES
+(1, 'Spielberg', 'Steven', '1946-12-18', 'Américain'),
+(2, 'Nolan', 'Christopher', '1970-07-30', 'Britannique'),
+(3, 'Cameron', 'James', '1954-08-16', 'Canadien'),
+(4, 'Spielberg', 'Steven', '1946-12-18', 'Américain'),
+(5, 'Nolan', 'Christopher', '1970-07-30', 'Britannique'),
+(6, 'Cameron', 'James', '1954-08-16', 'Canadien');
+ 
+-- DATA film_director
+INSERT INTO `film_director`
+SELECT film_id, 1 FROM film
+WHERE film_id between 1 and 100;
+INSERT INTO `film_director`
+SELECT film_id, 2 FROM film
+WHERE film_id between 101 and 200;
+INSERT INTO `film_director`
+SELECT film_id, 3 FROM film
+WHERE film_id between 201 and 300;
+INSERT INTO `film_director`
+SELECT film_id, 4 FROM film
+WHERE film_id between 301 and 400;
+INSERT INTO `film_director`
+SELECT film_id, 5 FROM film
+WHERE film_id between 401 and 500;
+INSERT INTO `film_director`
+SELECT film_id, 6 FROM film
+WHERE film_id between 501 and 1000;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

@@ -4,11 +4,11 @@
 
 Pour configurer correctement la base de données Peach, veuillez suivre ces étapes dans l'ordre indiqué :
 
-1. Exécutez le script `sakila-schema.sql`
-   - Ce script crée la structure initiale de la base de données Sakila.
+1. Exécutez le script `peach-schema.sql`
+   - Ce script crée la structure initiale de la base de données Peach.
 
-2. Exécutez le script `sakila-data.sql`
-   - Ce script remplit la base de données Sakila avec les données de départ.
+2. Exécutez le script `peach-data.sql`
+   - Ce script remplit la base de données Peach avec les données de départ.
 
 3. Exécutez le script `migration_peach-schema.sql`
    - Ce script adapte le schéma de la base de données pour le projet Peach.
