@@ -16,4 +16,4 @@ Pour configurer correctement la base de données Peach, veuillez suivre ces éta
 4. Exécutez le script `migration_peach-data.sql`
    - Ce script ajoute ou modifie les données spécifiques au projet Peach.
 
-Assurez-vous d'exécuter ces scripts dans l'ordre exact mentionné ci-dessus pour garantir l'intégrité et le bon fonctionnement de la base de données Peach.
+Assurez-vous d'exécuter ces scripts dans l'ordre exact mentionné ci-dessus pour garantir l'intégrité et le bon fonctionnement de la base de données Peach. é
