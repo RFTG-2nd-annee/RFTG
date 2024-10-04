@@ -1,7 +1,7 @@
 # Projet scolaire RFTG
 
 
-## Contexte du Projet RFTG (Return from the Graveyard)
+## Contexte du Projet RFTG (Raised From The Graveyard)
 
 Le projet RFTG est une initiative innovante lancée par M. Mac Fly, responsable de l'animation du village et ancien informaticien des années 80. Malgré un changement de carrière dû à un accident d'overboard, M. Mac Fly reste passionné par la technologie et a déjà posé les bases du projet.
 
