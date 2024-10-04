@@ -22,13 +22,13 @@ public class DirectorController {
   private DirectorRepository directorRepository;
 
   @PostMapping(path="/add") // Map ONLY POST Requests
-  public @ResponseBody String addNewDirector (@RequestParam Integer id_director, @RequestParam String nom, @RequestParam String prenom, @RequestParam java.sql.Timestamp date_naissance
+  public @ResponseBody String addNewDirector (@RequestParam Integer director_id, @RequestParam String nom, @RequestParam String prenom, @RequestParam java.sql.Timestamp date_naissance
       , @RequestParam String nationalite) {
     // @ResponseBody means the returned String is the response, not a view name
     // @RequestParam means it is a parameter from the GET or POST request
 
     Director n = new Director();
-    n.setid_director(id_director);
+    n.setdirector_id(director_id);
     n.setnom(nom);
     n.setprenom(prenom);
     n.setdate_naissance(date_naissance);
@@ -47,19 +47,19 @@ public class DirectorController {
     // This returns a JSON or XML with the users
     return directorRepository.findAll();
   }
-  @DeleteMapping(path = "/delete/{id_director}")
+  @DeleteMapping(path = "/delete/{director_id}")
     public @ResponseBody String deleteFilm(@PathVariable Integer id) {
         directorRepository.deleteById(id);
         return "Réalisateur supprimé";
     }
      @PutMapping(path="/add") // Map ONLY POST Requests
-  public @ResponseBody String PutDirector (@RequestParam Integer id_director, @RequestParam String nom, @RequestParam String prenom, @RequestParam java.sql.Timestamp date_naissance
+  public @ResponseBody String PutDirector (@RequestParam Integer director_id, @RequestParam String nom, @RequestParam String prenom, @RequestParam java.sql.Timestamp date_naissance
       , @RequestParam String nationalite) {
     // @ResponseBody means the returned String is the response, not a view name
     // @RequestParam means it is a parameter from the GET or POST request
 
     Director n = new Director();
-    n.setid_director(id_director);
+    n.setdirector_id(director_id);
     n.setnom(nom);
     n.setprenom(prenom);
     n.setdate_naissance(date_naissance);

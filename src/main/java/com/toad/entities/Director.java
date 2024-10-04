@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Director {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id_director; // BIGINT
+    private Integer director_id; // BIGINT
  
     private String nom;
  
@@ -20,12 +20,12 @@ public class Director {
     private String nationalite; // TINYINT
  
     // Getters and Setters
-    public Integer getid_director() {
-        return id_director;
+    public Integer getdirector_id() {
+        return director_id;
     }
  
-    public void setid_director(Integer id_director) {
-        this.id_director = id_director;
+    public void setdirector_id(Integer director_id) {
+        this.director_id = director_id;
     }
  
     public String getnom() {
