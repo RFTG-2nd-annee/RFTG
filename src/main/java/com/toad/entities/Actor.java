@@ -1,4 +1,4 @@
-package com.example.toad.entities;
+package com.toad.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package com.example.toad.controllers;
+package com.toad.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.DeleteMapping;
 
-import com.example.toad.entities.Customer;
-import com.example.toad.repositories.CustomerRepository;
+import com.toad.entities.Customer;
+import com.toad.repositories.CustomerRepository;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 @Controller
 @RequestMapping(path = "/toad/customer") // This means URL's start with /film (after Application path)
