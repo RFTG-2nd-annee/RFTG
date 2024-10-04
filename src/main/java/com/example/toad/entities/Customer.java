@@ -1,7 +1,5 @@
 package com.example.toad.entities;
  
-import java.sql.Date;
- 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,9 +25,9 @@ public class Customer {
   @Column (name="active")
   private int active;
   @Column (name="create_update")
-  private Date create_update;
+  private java.sql.Timestamp create_update;
   @Column (name="last_update")
-  private Date last_update;
+  private java.sql.Timestamp last_update;
  
   public void setId(Integer id) {
     this.id = id;
@@ -83,16 +81,16 @@ public class Customer {
   public void setActive(int active) {
     this.active = active;
   }
-  public Date getCreateUpdate() {
+  public java.sql.Timestamp getCreateUpdate() {
     return create_update;
   }
-  public void setCreateUpdate(Date create_update) {
+  public void setCreateUpdate(java.sql.Timestamp create_update) {
     this.create_update = create_update;
   }
-  public Date getLastUpdate() {
+  public java.sql.Timestamp getLastUpdate() {
     return last_update;
   }
-  public void setLastUpdate(Date last_update) {
+  public void setLastUpdate(java.sql.Timestamp last_update) {
     this.last_update = last_update;
   }
 }
