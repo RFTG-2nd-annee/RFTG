@@ -3,6 +3,7 @@ package com.example.toad.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -46,7 +47,7 @@ public class RentalController {
         return "Rental Updated";
     }
 
-    @PostMapping(path = "/rentals")
+    @PostMapping(path = "/add")
     public @ResponseBody String createRental(
             @PathVariable Integer rental_id,
             @RequestParam String rental_date,
@@ -73,5 +74,10 @@ public class RentalController {
     public @ResponseBody String deleteFilm(@PathVariable Integer id) {
         RentalRepository.deleteById(id);
         return "Location Supprimée";
+    }
+
+    @GetMapping(path="/all")
+    public @ResponseBody Iterable<Rental> getAllUsers() {
+        return RentalRepository.findAll();
     }
 }
