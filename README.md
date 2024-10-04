@@ -70,4 +70,10 @@ Pour installer le projet RFTG à l'aide de Git, suivez ces étapes :
    ```
 
 
-Si vous êtes dans VSCode, vous pouvez utiliser la commande git add *; git commit -m "test";git push pour ajouter, commiter et push les modifications en une seule commande.
+Si vous êtes dans VSCode, vous pouvez utiliser la commande 
+```
+git add *; git commit -m "Description des modifications";git push
+```
+
+pour ajouter, commiter et push les modifications en une seule commande.
+
